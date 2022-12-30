@@ -1,23 +1,24 @@
 const { Schema, model } = require("mongoose");
+const bcrypt = require("bcrypt");
 
-const validateEmail = function(email) {
-  const re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-  return re.test(email)
-};
-
-const UserSchema = new Schema(
+const userSchema = new Schema(
   {
     username: {
       type: String,
-      unique: true,
       required: true,
+      unique: true,
       trim: true,
     },
     email: {
       type: String,
       required: true,
       unique: true,
-      validate: [validateEmail, 'Please fill a valid email address'],
+      match: [/.+@.+\..+/, "Must match an email address!"],
+    },
+    password: {
+      type: String,
+      required: true,
+      minlength: 5,
     },
     events: [
       {
@@ -36,14 +37,26 @@ const UserSchema = new Schema(
     toJSON: {
       virtuals: true,
     },
-    id: false,
   }
 );
 
-UserSchema.virtual("friendCount").get(function () {
+userSchema.pre("save", async function (next) {
+  if (this.isNew || this.isModified("pasword")) {
+    const saltRounds = 10;
+    this.password = await bcrypt.hash(this.password, saltRounds);
+  }
+
+  next();
+});
+
+// Compare incoming password with the hashed password
+userSchema.methods.isCorrectPassword = async function (password) {
+  return bcrypt.compare(password, this.password);
+};
+
+userSchema.virtual("friendCount").get(function () {
   return this.friends.length;
 });
 
-const User = model("User", UserSchema);
-
+const User = model("User", userSchema);
 module.exports = User;

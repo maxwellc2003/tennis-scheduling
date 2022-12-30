@@ -185,26 +185,35 @@ async function getEventData() {
 }
 
 function displayEventData(date, data, filter) {
-  while (eventContainer1.firstChild) {
-    eventContainer1.removeChild(eventContainer1.firstChild);
+  let eventContainer1El = document.getElementById("eventContainer1");
+  let eventContainer2El = document.getElementById("eventContainer2");
+  let eventContainer3El = document.getElementById("eventContainer3");
+  let eventContainer4El = document.getElementById("eventContainer4");
+  let eventContainer5El = document.getElementById("eventContainer5");
+  let eventContainer6El = document.getElementById("eventContainer6");
+  let eventContainer7El = document.getElementById("eventContainer7");
+
+
+  while (eventContainer1El.firstChild) {
+    eventContainer1El.removeChild(eventContainer1El.firstChild);
   }
-  while (eventContainer2.firstChild) {
-    eventContainer2.removeChild(eventContainer2.firstChild);
+  while (eventContainer2El.firstChild) {
+    eventContainer2El.removeChild(eventContainer2El.firstChild);
   }
-  while (eventContainer3.firstChild) {
-    eventContainer3.removeChild(eventContainer3.firstChild);
+  while (eventContainer3El.firstChild) {
+    eventContainer3El.removeChild(eventContainer3El.firstChild);
   }
-  while (eventContainer4.firstChild) {
-    eventContainer4.removeChild(eventContainer4.firstChild);
+  while (eventContainer4El.firstChild) {
+    eventContainer4El.removeChild(eventContainer4El.firstChild);
   }
-  while (eventContainer5.firstChild) {
-    eventContainer5.removeChild(eventContainer5.firstChild);
+  while (eventContainer5El.firstChild) {
+    eventContainer5El.removeChild(eventContainer5El.firstChild);
   }
-  while (eventContainer6.firstChild) {
-    eventContainer6.removeChild(eventContainer6.firstChild);
+  while (eventContainer6El.firstChild) {
+    eventContainer6El.removeChild(eventContainer6El.firstChild);
   }
-  while (eventContainer7.firstChild) {
-    eventContainer7.removeChild(eventContainer7.firstChild);
+  while (eventContainer7El.firstChild) {
+    eventContainer7El.removeChild(eventContainer7El.firstChild);
   }
 
   let length = data.length;

@@ -1,4 +1,5 @@
-// document.querySelector() is used to select an element from the document using its ID
+export default function initCaptcha() {
+  // document.querySelector() is used to select an element from the document using its ID
 let captchaText = document.querySelector("#captcha");
 var ctx = captchaText.getContext("2d");
 ctx.font = "60px nunito, serif";
@@ -134,3 +135,4 @@ refreshButton.addEventListener("click", function () {
   );
   output.innerHTML = "";
 });
+}

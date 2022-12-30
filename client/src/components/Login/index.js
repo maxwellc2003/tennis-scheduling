@@ -1,5 +1,7 @@
 import React from "react";
 
+import "../../assets/css/login.css"
+
 const Login = () => {
   return (
     <div className="form-wrapper">
