@@ -1,0 +1,51 @@
+.signup-form {
+    margin: 15px;
+    text-align: center;
+    width: 25%;
+    border-radius: 10px;
+    color: var(--signup-text);
+    border: 3px solid var(--signup-background);
+    background-color: var(--signup-background);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  
+  .signup-form form {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    width: 100%;
+  }
+  
+  .signup-form p {
+    margin: 0;
+  }
+  
+  .signup-input {
+    width: 90%;
+  }
+  
+  .signup-button {
+    width: 45%;
+  }
+  
+  .signup-button:hover {
+    cursor: pointer;
+    background-color: var(--text-hover-color);
+  }
+  
+  .checkbox {
+    margin-left: 5%;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .signup-or-cancel {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+  }

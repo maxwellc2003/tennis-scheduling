@@ -1,0 +1,572 @@
+:root {
+  /* general roots */
+  --background: #0075b8;
+  --text-color: black;
+  --icon-color: #0075b8;
+  --banner-color: #e3e3e3;
+  --footer-text-color: #0075b8;
+  --text-hover-color: #0a4f94;
+  /* calendar roots */
+  --calendar-text-color: black;
+  --calendar-btn: #0075b8;
+  --calendar-banner-color: rgb(163, 163, 163);
+  --event-color: rgb(163, 163, 163);
+  --event-hover-color: rgb(83, 83, 83);
+  --event-icon-color: white;
+  --full-event-color: rgb(95, 25, 25);
+  --full-event-hover-color: rgb(71, 19, 19);
+  --full-event-icon-color: white;
+  /* login/player card/add session roots */
+  --main-right-text-color: black;
+  --main-right-background-color: #e3e3e3;
+  --selected-event-color: #e3e3e3;
+  /* front page roots */
+  --front-page-main-text-color: black;
+  --front-page-main-background-color: #e3e3e3;
+   /* signup page roots */
+  --signup-background: #e3e3e3;
+  --signup-text: black;
+}
+
+.border {
+  border: 3px solid black;
+}
+
+/* INDEX */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+}
+
+body {
+  margin: 0;
+  /* background-image: url('https://s0.geograph.org.uk/geophotos/06/23/64/6236492_051926ce.jpg'); */
+  background-color: var(--background);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  min-height: 80vh;
+  height: auto;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0;
+}
+
+.main-left {
+  margin: 15px;
+  color: var(--calendar-text-color);
+  width: 70%;
+}
+
+.main-right {
+  margin: 15px;
+  background-color: var(--background-color);
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-between;
+}
+
+.main-right h1 {
+  margin: 15px 0 15px 0;
+}
+
+.welcome-wrapper {
+  padding: 25px;
+}
+
+.form-wrapper {
+  color: var(--main-right-text-color);
+  padding: 15px;
+  margin: 0;
+  height: auto;
+  border-radius: 3px;
+  background-color: var(--main-right-background-color);
+}
+
+.remember-me {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  margin: 0 22px 16px 20px;
+  text-align: left;
+}
+
+.forgot-login {
+  margin: 0;
+}
+
+.selected-event {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  margin: 0;
+  height: auto;
+  border-radius: 3px;
+  background-color: var(--selected-event-color);
+}
+
+.event-info-container,
+.rsvp-container {
+  margin: 0;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.event-info-container h3,
+.rsvp-container h3 {
+  text-decoration: underline;
+}
+
+.rsvp-container {
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.right-title {
+  margin-top: 10px;
+}
+
+.form-element {
+  width: 90%;
+  padding: 5px;
+  border: none;
+  font-weight: 700;
+  border-radius: 5px;
+}
+
+.login-wrapper-wrapper {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.login-wrapper-wrapper button {
+  width: 40%;
+}
+
+#input_5 {
+  -webkit-text-security: disc;
+  -moz-text-security: disc;
+}
+
+#password-login {
+  -webkit-text-security: disc;
+  -moz-text-security: disc;
+}
+
+.button {
+  background-color: rgb(163, 163, 163);
+}
+
+.btn:hover,
+.button:hover {
+  cursor: pointer;
+  background-color: var(--text-hover-color);
+  color: #fff;
+}
+
+.policy {
+  display: flex;
+  justify-content: center;
+}
+
+.calendar-wrapper,
+.header-logo,
+.header-title,
+.header-title h1,
+.header-title a {
+  margin: 0;
+}
+
+.calendar {
+  border-radius: 3px;
+  border: 3px var(--calendar-banner-color) solid;
+  margin: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.calendar-header {
+  margin: 0;
+  background-color: var(--calendar-banner-color);
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.calendar-header-left {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.calendar-content {
+  margin: 0;
+  display: flex;
+  justify-content: space-evenly;
+  height: 100%;
+}
+
+.calendar-row {
+  background-color: rgb(255, 255, 255);
+  margin: 0px;
+  width: 14.2857142857%;
+  border-right: dotted 1px #666;
+}
+
+.calendar-row:last-child {
+  border: none;
+}
+
+.week-day {
+  font-size: x-large;
+  text-align: center;
+  color: var(--calendar-text-color);
+  margin: 15px;
+  height: auto;
+  background-color: #f5f5f5;
+  border: 1px solid #e3e3e3;
+}
+
+.week-day h3 {
+  margin: 5px;
+  color: var(--calendar-text-color);
+}
+
+.week-day h2 {
+  margin: 5px;
+}
+
+.calendar-footer {
+  margin: 0;
+  background-color: var(--calendar-banner-color);
+  margin-top: auto;
+  padding: 10px;
+  align-items: center;
+}
+
+.btn {
+  color: white;
+  background-color: rgb(22, 22, 170);
+  border-radius: 5px;
+  padding: 0px 10px 0px 10px;
+  margin: 0px;
+  border: 0px;
+}
+
+.btninvis {
+  width: 105.609px;
+  color: white;
+  background-color: rgb(11, 44, 11);
+  border-radius: 5px;
+  padding: 0px 10px 0px 10px;
+  margin: 0px;
+  border: 0px;
+}
+
+.calendar-header-date,
+.calendar-footer-date {
+  margin: 0px;
+  border: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon:hover {
+  background-color: darkblue;
+}
+
+.icon:active {
+  background-color: darkblue;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.card {
+  margin: 5px;
+  text-align: center;
+  width: 80%;
+  border-radius: 50px;
+  background-color: var(--event-color);
+  cursor: pointer;
+  color: white;
+}
+
+.card h5 {
+  margin: 10px;
+}
+
+.card:hover {
+  background-color: var(--event-hover-color);
+}
+
+.number-attending-icon {
+  margin: 6.5px 0 0 8px;
+  padding: 10px;
+  border-radius: 50%;
+  background-color: var(--banner-color);
+  position: absolute;
+  background-color: var(--event-icon-color);
+}
+
+.full-icon {
+  background-color: var(--full-event-icon-color);
+}
+
+.card p {
+  color: black;
+  margin: 8.5px 0 0 14px;
+  position: absolute;
+  z-index: 1;
+}
+
+.number-attending-icon p {
+  margin: 0;
+}
+
+.full-session {
+  color: white;
+  background-color: var(--full-event-color);
+}
+
+.full-session:hover {
+  background-color: var(--full-event-hover-color);
+}
+
+.event-container {
+  margin: 0px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.arrow {
+  margin: 0px;
+  border: 5px solid var(--calendar-text-color);
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 5px;
+}
+
+.arrow:hover {
+  cursor: pointer;
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+/* FIRST DROPDOWN */
+
+/* Dropdown Button */
+.dropbtn {
+  background-color: var(--calendar-btn);
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover {
+  cursor: pointer;
+  background-color: var(--text-hover-color);
+  color: #fff;
+}
+
+.dropbtn-focus {
+  background-color: var(--text-hover-color);
+  border-radius: 10px 10px 0 0;
+}
+
+.jumpToBtn {
+  margin: 5px;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  align-items: center;
+  margin: 0px;
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  margin: 0px;
+  display: none;
+  position: absolute;
+  background-color: var(--text-hover-color);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 0 10px 10px 10px;
+}
+
+.dropdown-content select {
+  margin: 5px;
+}
+
+.dropdown-content label {
+  margin: 5px;
+}
+
+.dropdown-content input {
+  margin: 5px;
+}
+
+.dropdown-content button {
+  margin: 5px;
+}
+
+.dropdown-content form {
+  margin: 5px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {
+  display: block;
+}
+
+/* SECOND DROPDOWN */
+
+/* Dropdown Button */
+.dropbtn2 {
+  background-color: var(--calendar-btn);
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn2:hover {
+  cursor: pointer;
+  background-color: var(--text-hover-color);
+  color: #fff;
+}
+
+.dropbtn-focus2 {
+  background-color: var(--text-hover-color);
+  border-radius: 10px 10px 0 0;
+}
+
+.jumpToBtn2 {
+  margin: 5px;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown2 {
+  margin: 0px;
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content2 {
+  right: 0;
+  margin: 0px;
+  display: none;
+  position: absolute;
+  background-color: var(--text-hover-color);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 10px 0 10px 10px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content2 a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content2 select {
+  margin: 5px;
+}
+
+.dropdown-content2 label {
+  margin: 5px;
+}
+
+.dropdown-content2 form {
+  margin: 5px;
+}
+
+.dropdown-content2 button {
+  margin: 5px;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content2 a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show2 {
+  display: block;
+}
+
+.help-button {
+  color: var(--calendar-btn);
+  margin-left: 10px;
+  text-align: center;
+}
+
+/* FRONT PAGE */
+
+.front-page-main {
+  margin: 15px;
+  padding: 25px;
+  color: var(--front-page-main-text-color);
+  background-color: var(--front-page-main-background-color);
+  width: 70%;
+  border-radius: 2px;
+}

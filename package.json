@@ -1,0 +1,32 @@
+{
+  "name": "ourchat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "homepage": ".",
+  "scripts": {
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "start": "cd server && node server.js",
+    "server": "cd server nodemon server.js --ignore client",
+    "build": "cd client && npm run build",
+    "install": "concurrently \"cd client && npm install\" \"cd server && npm install\" ",
+    "client": "cd client && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chrisbond1226/chatApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Chrisbond1226/chatApp/issues"
+  },
+  "homepage": "https://github.com/Chrisbond1226/chatApp#readme",
+  "devDependencies": {
+    "concurrently": "^7.6.0",
+    "node": "^19.2.0"
+  },
+  "dependencies": {
+    "react-script-tag": "^1.1.2"
+  }
+}

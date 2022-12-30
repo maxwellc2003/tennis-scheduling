@@ -1,0 +1,27 @@
+footer {
+    padding: 25px;
+    min-height: 100px;
+    align-items: center;
+    background-color: var(--banner-color);
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .footer-btn {
+    text-decoration: none;
+    padding: 15px;
+    color: var(--footer-text-color);
+    font-size: 18;
+    font-weight: bold;
+  }
+  
+  .footer-btn:hover {
+    color: var(--text-hover-color);
+    cursor: pointer;
+  }
+  
+  .footer-title a:hover {
+    color: var(--text-color);
+    text-decoration: none;
+    color: var(--text-hover-color);
+  }
