@@ -161,7 +161,7 @@ async function getEventData() {
   var events = [];
 
   try {
-    const res = await fetch("api/events", {
+    const res = await fetch("graphql/events", {
       method: "GET",
     });
     events = await res.json();

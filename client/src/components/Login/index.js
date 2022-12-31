@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../../utils/mutations";
 import Auth from "../../utils/auth";
+import { Link } from "react-router-dom";
 
 import "../../assets/css/login.css";
 
@@ -83,16 +84,9 @@ const Login = () => {
             >
               Login
             </button>
-
-            <button
-              href="/signup"
-              id="register-button"
-              className="login-form-button"
-              type="button"
-            >
-              {" "}
+            <Link to="/signup" className="login-form-button">
               Register
-            </button>
+            </Link>
           </div>
         </form>
         {error && <div>Login unsuccessful</div>}

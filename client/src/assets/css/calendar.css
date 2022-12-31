@@ -1,0 +1,250 @@
+.calendar-wrapper {
+  margin: 0;
+  height: 100%;
+}
+
+.calendar {
+  border-radius: 3px;
+  border: 3px var(--calendar-banner-color) solid;
+  margin: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.calendar-header {
+  margin: 0;
+  background-color: var(--calendar-banner-color);
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.calendar-header-left {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.calendar-content {
+  margin: 0;
+  display: flex;
+  justify-content: space-evenly;
+  height: 100%;
+}
+
+.calendar-row {
+  background-color: rgb(255, 255, 255);
+  margin: 0px;
+  width: 14.2857142857%;
+  border-right: dotted 1px #666;
+}
+
+.calendar-row:last-child {
+  border: none;
+}
+
+.calendar-footer {
+  margin: 0;
+  background-color: var(--calendar-banner-color);
+  margin-top: auto;
+  padding: 10px;
+  align-items: center;
+}
+
+.calendar-header-date,
+.calendar-footer-date {
+  margin: 0px;
+  border: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow {
+  margin: 0px;
+  border: 5px solid var(--calendar-text-color);
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 5px;
+}
+
+.arrow:hover {
+  cursor: pointer;
+}
+
+/* FIRST DROPDOWN */
+
+/* Dropdown Button */
+.dropbtn {
+  background-color: var(--calendar-btn);
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover {
+  cursor: pointer;
+  background-color: var(--text-hover-color);
+  color: #fff;
+}
+
+.dropbtn-focus {
+  background-color: var(--text-hover-color);
+  border-radius: 10px 10px 0 0;
+}
+
+.jumpToBtn {
+  margin: 5px;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  align-items: center;
+  margin: 0px;
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  margin: 0px;
+  display: none;
+  position: absolute;
+  background-color: var(--text-hover-color);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 0 10px 10px 10px;
+}
+
+.dropdown-content select {
+  margin: 5px;
+}
+
+.dropdown-content label {
+  margin: 5px;
+}
+
+.dropdown-content input {
+  margin: 5px;
+}
+
+.dropdown-content button {
+  margin: 5px;
+}
+
+.dropdown-content form {
+  margin: 5px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {
+  display: block;
+}
+
+/* SECOND DROPDOWN */
+
+/* Dropdown Button */
+.dropbtn2 {
+  background-color: var(--calendar-btn);
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn2:hover {
+  cursor: pointer;
+  background-color: var(--text-hover-color);
+  color: #fff;
+}
+
+.dropbtn-focus2 {
+  background-color: var(--text-hover-color);
+  border-radius: 10px 10px 0 0;
+}
+
+.jumpToBtn2 {
+  margin: 5px;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown2 {
+  margin: 0px;
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content2 {
+  right: 0;
+  margin: 0px;
+  display: none;
+  position: absolute;
+  background-color: var(--text-hover-color);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 10px 0 10px 10px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content2 a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content2 select {
+  margin: 5px;
+}
+
+.dropdown-content2 label {
+  margin: 5px;
+}
+
+.dropdown-content2 form {
+  margin: 5px;
+}
+
+.dropdown-content2 button {
+  margin: 5px;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content2 a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show2 {
+  display: block;
+}
+
+.help-button {
+  color: var(--calendar-btn);
+  margin-left: 10px;
+  text-align: center;
+}

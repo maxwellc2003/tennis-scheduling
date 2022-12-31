@@ -2,8 +2,13 @@ import React from "react";
 
 import Slider from "../components/Slider";
 import Login from "../components/Login";
+import PlayerCard from "../components/PlayerCard";
+
+import Auth from "../utils/auth";
 
 const Home = () => {
+  const loggedIn = Auth.loggedIn();
+
   return (
     <main>
       <div className="front-page-main">
@@ -56,7 +61,9 @@ const Home = () => {
         </div>
       </div>
       <div className="main-right">
-        <Login />
+        {!loggedIn && <Login />}
+        {loggedIn && <PlayerCard />}
+
         <Slider />
       </div>
     </main>

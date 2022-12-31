@@ -44,12 +44,6 @@ var responsiveSlider = function () {
   setInterval(function () {
     nextSlide();
   }, 8000);
-
-  function registerPage() {
-    document.location.replace('/signup');
-  }
-  
-  document.getElementById('register-button').addEventListener("click", registerPage);
 };
 
 export default responsiveSlider;

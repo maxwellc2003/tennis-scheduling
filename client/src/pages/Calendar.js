@@ -1,5 +1,7 @@
 import React, {useEffect} from "react";
 
+import "../assets/css/calendar.css"
+
 import initCalendar from "../assets/js/calendar.js";
 import Login from "../components/Login";
 

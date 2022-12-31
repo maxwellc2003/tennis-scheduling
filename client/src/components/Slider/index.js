@@ -11,7 +11,7 @@ import MainPage05 from "../../assets/images/main-page-05.jpg";
 
 const Slider = () => {
   useEffect(() => {
-    responsiveSlider();
+    // responsiveSlider();
   }, []);
   return (
     <div>
