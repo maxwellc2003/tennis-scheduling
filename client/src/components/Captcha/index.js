@@ -10,8 +10,10 @@ const Footer = () => {
       <canvas id="captcha">captcha text</canvas>
       <input id="textBox" type="text" name="text" />
       <div id="buttons">
-        <input id="submitButton" type="submit" />
-        <button id="refreshButton" type="submit">
+        <button id="submitButton" type="button">
+          Submit
+        </button>
+        <button id="refreshButton" type="button">
           Refresh
         </button>
       </div>

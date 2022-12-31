@@ -53,7 +53,7 @@ const Home = () => {
               </div>
               <div className="calendar-header-date">
                 <i id="arrow-left" className="arrow left"></i>
-                <h1 id="current-week-header" className="current-week"></h1>
+                <h1 id="current-week-header" className="current-week">placeholder</h1>
                 <i id="arrow-right" className="arrow right"></i>
               </div>
 
@@ -106,7 +106,7 @@ const Home = () => {
             <div className="calendar-footer">
               <div className="calendar-footer-date">
                 <i id="arrow-left1" className="arrow left"></i>
-                <h1 id="current-week-footer" className="current-week"></h1>
+                <h1 id="current-week-footer" className="current-week">placeholder</h1>
                 <i id="arrow-right1" className="arrow right"></i>
               </div>
             </div>

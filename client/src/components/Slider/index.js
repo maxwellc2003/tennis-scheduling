@@ -21,35 +21,35 @@ const Slider = () => {
             <img
               id="mainpage01"
               src={MainPage01}
-              alt="A picture of people playing tennis"
+              alt="People playing tennis"
             />
           </li>
           <li>
             <img
               id="mainpage02"
               src={MainPage02}
-              alt="A picture of a tennis court"
+              alt="Scenic tennis court at Del Norte clubhouse"
             />
           </li>
           <li>
             <img
               id="mainpage03"
               src={MainPage03}
-              alt="A picture of a tennis court"
+              alt="Scenic tennis court at Del Norte clubhouse"
             />
           </li>
           <li>
             <img
               id="mainpage04"
               src={MainPage04}
-              alt="A picture of people playing tennis"
+              alt="People playing tennis"
             />
           </li>
           <li>
             <img
               id="mainpage05"
               src={MainPage05}
-              alt="A picture of people playing tennis"
+              alt="People playing tennis"
             />
           </li>
         </ul>

@@ -1,9 +1,8 @@
 {
-  "name": "ourchat",
+  "name": "tennisscheduling",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "homepage": ".",
   "scripts": {
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "start": "cd server && node server.js",

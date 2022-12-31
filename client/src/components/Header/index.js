@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <header>
     <div className="header-left">
-      <a href="/" ><img src={Banner} ></img></a>
+      <a href="/" ><img src={Banner} alt=""></img></a>
     </div>
     <div className="header-right">
       <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="currentColor" className="bi bi-help header-icon"

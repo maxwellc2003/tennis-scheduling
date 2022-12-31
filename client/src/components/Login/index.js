@@ -1,61 +1,101 @@
-import React from "react";
+import React, { useState } from "react";
+import { useMutation } from "@apollo/client";
+import { LOGIN_USER } from "../../utils/mutations";
+import Auth from "../../utils/auth";
 
-import "../../assets/css/login.css"
+import "../../assets/css/login.css";
 
 const Login = () => {
+  const [formState, setFormState] = useState({ email: "", password: "" });
+  const [login, { error }] = useMutation(LOGIN_USER);
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      const { data } = await login({
+        variables: { ...formState },
+      });
+
+      Auth.login(data.login.token);
+    } catch (err) {
+      console.error(err);
+    }
+
+    setFormState({
+      email: "",
+      password: "",
+    });
+  };
+
   return (
     <div className="form-wrapper">
       <h1>Player Login/Register</h1>
       <div>
-        <form>
+        <form onSubmit={handleFormSubmit} className="login-form">
           <input
             className="form-element email"
-            type="text"
-            id="email-login"
+            name="email"
+            type="email"
+            id="email"
             placeholder="Email"
+            value={formState.email}
+            onChange={handleChange}
           />
-        </form>
-        <form>
           <input
             className="form-element password"
-            type="text"
-            id="password-login"
+            name="password"
+            type="password"
+            id="password"
+            value={formState.password}
+            onChange={handleChange}
             placeholder="Password"
           />
-        </form>
-        <form className="remember-me">
-          <div>
-            <input
-              type="checkbox"
-              id="remember-me"
-              name="remember-me"
-              value="Boat"
-            ></input>
-            <label className="remember-me-label" htmlFor="remember-me">
-              Remember Me
-            </label>
+          <div className="remember-or-forgot">
+            <div>
+              <input
+                type="checkbox"
+                id="remember-me"
+                name="remember-me"
+              ></input>
+              <label className="remember-me-label" htmlFor="remember-me">
+                Remember Me
+              </label>
+            </div>
+            <div>
+              <p className="forgot-login">Forgot login?</p>
+            </div>
           </div>
-          <div>
-            <p className="forgot-login">Forgot login?</p>
-          </div>
-        </form>
+          <div className="login-form-button-container">
+            <button
+              id="login-button"
+              className="login-form-button"
+              type="submit"
+            >
+              Login
+            </button>
 
-        <div className="login-wrapper-wrapper">
-          <button
-            id="login-button"
-            className="button form-element"
-            type="button"
-          >
-            Login
-          </button>
-          <button
-            href="/signup"
-            id="register-button"
-            className="button form-element"
-            type="button"
-          > Register
-          </button>
-        </div>
+            <button
+              href="/signup"
+              id="register-button"
+              className="login-form-button"
+              type="button"
+            >
+              {" "}
+              Register
+            </button>
+          </div>
+        </form>
+        {error && <div>Login unsuccessful</div>}
       </div>
     </div>
   );

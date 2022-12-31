@@ -227,7 +227,7 @@ function displayEventData(date, data, filter) {
 
   for (let i = 0; i < length; i++) {
     // MONDAY
-    if (data[i].date == monday) {
+    if (data[i].date === monday) {
       let containerEl = document.getElementById("eventContainer1");
       let cardEl = document.createElement("div");
       let timeEl = document.createElement("h5");
@@ -239,7 +239,7 @@ function displayEventData(date, data, filter) {
       }
 
       if (filter != null) {
-        if (data[i].location == filter) {
+        if (data[i].location === filter) {
           timeEl.textContent = data[i].time;
           cardEl.classList.add("card");
           numberAttendingEl.textContent = data[i].event_users.length;
@@ -279,7 +279,7 @@ function displayEventData(date, data, filter) {
     }
 
     // TUESDAY
-    if (data[i].date == tuesday) {
+    if (data[i].date === tuesday) {
       let containerEl = document.getElementById("eventContainer2");
       let cardEl = document.createElement("div");
       let timeEl = document.createElement("h5");
@@ -291,7 +291,7 @@ function displayEventData(date, data, filter) {
       }
 
       if (filter != null) {
-        if (data[i].location == filter) {
+        if (data[i].location === filter) {
           timeEl.textContent = data[i].time;
           cardEl.classList.add("card");
           numberAttendingEl.textContent = data[i].event_users.length;
@@ -331,7 +331,7 @@ function displayEventData(date, data, filter) {
     }
 
     // WEDNESDAY
-    if (data[i].date == wednesday) {
+    if (data[i].date === wednesday) {
       let containerEl = document.getElementById("eventContainer3");
       let cardEl = document.createElement("div");
       let timeEl = document.createElement("h5");
@@ -343,7 +343,7 @@ function displayEventData(date, data, filter) {
       }
 
       if (filter != null) {
-        if (data[i].location == filter) {
+        if (data[i].location === filter) {
           timeEl.textContent = data[i].time;
           cardEl.classList.add("card");
           numberAttendingEl.textContent = data[i].event_users.length;
@@ -383,7 +383,7 @@ function displayEventData(date, data, filter) {
     }
 
     // THURSDAY
-    if (data[i].date == thursday) {
+    if (data[i].date === thursday) {
       let containerEl = document.getElementById("eventContainer4");
       let cardEl = document.createElement("div");
       let timeEl = document.createElement("h5");
@@ -395,7 +395,7 @@ function displayEventData(date, data, filter) {
       }
 
       if (filter != null) {
-        if (data[i].location == filter) {
+        if (data[i].location === filter) {
           timeEl.textContent = data[i].time;
           cardEl.classList.add("card");
           numberAttendingEl.textContent = data[i].event_users.length;
@@ -435,7 +435,7 @@ function displayEventData(date, data, filter) {
     }
 
     // FRIDAY
-    if (data[i].date == friday) {
+    if (data[i].date === friday) {
       let containerEl = document.getElementById("eventContainer5");
       let cardEl = document.createElement("div");
       let timeEl = document.createElement("h5");
@@ -447,7 +447,7 @@ function displayEventData(date, data, filter) {
       }
 
       if (filter != null) {
-        if (data[i].location == filter) {
+        if (data[i].location === filter) {
           timeEl.textContent = data[i].time;
           cardEl.classList.add("card");
           numberAttendingEl.textContent = data[i].event_users.length;
@@ -487,7 +487,7 @@ function displayEventData(date, data, filter) {
     }
 
     // SATURDAY
-    if (data[i].date == saturday) {
+    if (data[i].date === saturday) {
       let containerEl = document.getElementById("eventContainer6");
       let cardEl = document.createElement("div");
       let timeEl = document.createElement("h5");
@@ -499,7 +499,7 @@ function displayEventData(date, data, filter) {
       }
 
       if (filter != null) {
-        if (data[i].location == filter) {
+        if (data[i].location === filter) {
           timeEl.textContent = data[i].time;
           cardEl.classList.add("card");
           numberAttendingEl.textContent = data[i].event_users.length;
@@ -539,7 +539,7 @@ function displayEventData(date, data, filter) {
     }
 
     // SUNDAY
-    if (data[i].date == sunday) {
+    if (data[i].date === sunday) {
       let containerEl = document.getElementById("eventContainer7");
       let cardEl = document.createElement("div");
       let timeEl = document.createElement("h5");
@@ -551,7 +551,7 @@ function displayEventData(date, data, filter) {
       }
 
       if (filter != null) {
-        if (data[i].location == filter) {
+        if (data[i].location === filter) {
           timeEl.textContent = data[i].time;
           cardEl.classList.add("card");
           numberAttendingEl.textContent = data[i].event_users.length;
