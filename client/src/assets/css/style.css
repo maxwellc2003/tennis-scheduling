@@ -110,7 +110,7 @@ main {
   margin: 0;
   height: auto;
   border-radius: 3px;
-  background-color: grey;
+  background-color: var(--calendar-banner-color);
 }
 
 .event-info-container,

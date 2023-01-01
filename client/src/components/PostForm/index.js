@@ -62,7 +62,7 @@ const EventForm = () => {
         <div className="post-form-el">
         <h3>Date of session</h3>
           <textarea
-            placeholder="Format: (MM/DD/YY)"
+            placeholder="Must format: (MM/DD/YY)"
             value={eventDate}
             name="eventDate"
             onChange={handleChange}
@@ -71,7 +71,7 @@ const EventForm = () => {
         <div className="post-form-el">
         <h3>Location of session</h3>
           <textarea
-            placeholder="(Maximum 12 characters)"
+            placeholder="Maximum 24 characters (Orchard Park)"
             value={eventLocation}
             name="eventLocation"
             onChange={handleChange}
@@ -80,7 +80,7 @@ const EventForm = () => {
         <div className="post-form-el">
           <h3>Time of session</h3>
           <textarea
-            placeholder="(Maximum 8 characters)"
+            placeholder="Maximum 9 characters (12pm-3pm)"
             value={eventTime}
             name="eventTime"
             onChange={handleChange}
@@ -89,7 +89,7 @@ const EventForm = () => {
         <div className="post-form-el">
           <h3>Maximum players permitted</h3>
           <textarea
-            placeholder="Maximum 2 characters: (00...99)"
+            placeholder="Maximum 2 characters (00...99)"
             value={eventMax}
             name="eventMax"
             onChange={handleChange}

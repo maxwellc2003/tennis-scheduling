@@ -12,12 +12,12 @@ const EventSchema = new Schema(
     eventLocation: {
       type: String,
       required: true,
-      maxlength: 12,
+      maxlength: 24,
     },
     eventTime: {
       type: String,
       required: true,
-      maxlength: 8,
+      maxlength: 9,
     },
     eventMax: {
       type: String,
