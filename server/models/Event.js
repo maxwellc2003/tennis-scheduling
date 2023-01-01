@@ -17,7 +17,7 @@ const EventSchema = new Schema(
     eventTime: {
       type: String,
       required: true,
-      maxlength: 12,
+      maxlength: 8,
     },
     eventMax: {
       type: String,
