@@ -1,7 +1,6 @@
-import React, {useEffect} from "react";
+import React from "react";
 
 import "../../assets/css/slider.css";
-import responsiveSlider from "../../assets/js/slider.js";
 
 import MainPage01 from "../../assets/images/main-page-01.jpg";
 import MainPage02 from "../../assets/images/main-page-02.jpg";
@@ -10,19 +9,12 @@ import MainPage04 from "../../assets/images/main-page-04.jpg";
 import MainPage05 from "../../assets/images/main-page-05.jpg";
 
 const Slider = () => {
-  useEffect(() => {
-    // responsiveSlider();
-  }, []);
   return (
     <div>
       <div id="slider">
         <ul id="slideWrap">
           <li>
-            <img
-              id="mainpage01"
-              src={MainPage01}
-              alt="People playing tennis"
-            />
+            <img id="mainpage01" src={MainPage01} alt="People playing tennis" />
           </li>
           <li>
             <img
@@ -39,26 +31,14 @@ const Slider = () => {
             />
           </li>
           <li>
-            <img
-              id="mainpage04"
-              src={MainPage04}
-              alt="People playing tennis"
-            />
+            <img id="mainpage04" src={MainPage04} alt="People playing tennis" />
           </li>
           <li>
-            <img
-              id="mainpage05"
-              src={MainPage05}
-              alt="People playing tennis"
-            />
+            <img id="mainpage05" src={MainPage05} alt="People playing tennis" />
           </li>
         </ul>
-        <a id="prev" href="#">
-          &#8810;
-        </a>
-        <a id="next" href="#">
-          &#8811;
-        </a>
+        <p id="prev"></p>
+        <p id="next"></p>
       </div>
     </div>
   );

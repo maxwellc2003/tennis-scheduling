@@ -1,77 +1,77 @@
 import React, { useState } from "react";
 
+import "../../assets/css/postform.css";
+
 //Other important stuff
 import { useMutation } from "@apollo/client";
-import { ADD_POST } from "../../utils/mutations";
-import { QUERY_POSTS, QUERY_ME } from "../../utils/queries";
+import { ADD_EVENT } from "../../utils/mutations";
+import { QUERY_EVENTS, QUERY_ME } from "../../utils/queries";
 
-const maxPostCharacters = 280;
+const EventForm = () => {
+  const [{eventDate, eventLocation, eventTime, eventMax}, setText] = useState("");
 
-const PostForm = () => {
-  const [postText, setText] = useState("");
-  const [characterCount, setCharacterCount] = useState(0);
-
-  const [addPost, { error }] = useMutation(ADD_POST, {
-    update(cache, { data: { addPost } }) {
+  const [addEvent, { error }] = useMutation(ADD_EVENT, {
+    update(cache, { data: { addEvent } }) {
       try {
         const { me } = cache.readQuery({ query: QUERY_ME });
         cache.writeQuery({
           query: QUERY_ME,
-          data: { me: { ...me, posts: [...me.posts, addPost] } },
+          data: { me: { ...me, events: [...me.events, addEvent] } },
         });
       } catch (err) {
-        console.warn("First post by this user!");
+        console.warn("First event post by this user!");
       }
 
-      const { posts } = cache.readQuery({ query: QUERY_POSTS });
+      const { events } = cache.readQuery({ query: QUERY_EVENTS });
       cache.writeQuery({
-        query: QUERY_POSTS,
-        data: { posts: [addPost, ...posts] },
+        query: QUERY_EVENTS,
+        data: { events: [addEvent, ...events] },
       });
     },
   });
-
-  const handleChange = (event) => {
-    if (event.target.value.length <= maxPostCharacters) {
-      setText(event.target.value);
-      setCharacterCount(event.target.value.length);
-    }
-  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      await addPost({
-        variables: { postText },
+      await addEvent({
+        variables: { eventDate, eventLocation, eventTime, eventMax },
       });
 
       setText("");
-      setCharacterCount(0);
     } catch (err) {
       console.error(err);
     }
   };
 
   return (
-    <div>
+    <div className="post-form-wrapper">
       <form
-        className="flex-row justify-center justify-space-between-md align-stretch"
+        className="post-form"
         onSubmit={handleSubmit}
       >
+        <h1>Add Session</h1>
         <textarea
-          className="form-input col-12 col-md-9"
-          placeholder="What is on your mind?"
-          value={postText}
-          onChange={handleChange}
-        ></textarea>{" "}
-        <br></br>
-        <p>
-          Character Count: {characterCount}/{maxPostCharacters}
-          {error && <span>Something went wrong...</span>}
-        </p>
-        <br></br>
-        <button className="button-29 btn" type="submit">
+          className="post-form-el"
+          placeholder="Date of session(MM/DD/YY)"
+          value={eventDate}
+        ></textarea>
+        <textarea
+          className="post-form-el"
+          placeholder="Location of event(Maximum 12 characters)"
+          value={eventLocation}
+        ></textarea>
+        <textarea
+          className="post-form-el"
+          placeholder="Time of session"
+          value={eventTime}
+        ></textarea>
+        <textarea
+          className="post-form-el"
+          placeholder="Maximum players permitted"
+          value={eventMax}
+        ></textarea>
+        <button className="button form-element post-form-el" type="submit">
           Submit
         </button>
       </form>
@@ -79,4 +79,4 @@ const PostForm = () => {
   );
 };
 
-export default PostForm;
+export default EventForm;

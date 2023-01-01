@@ -1,10 +1,13 @@
 import { gql } from "@apollo/client";
 
-export const QUERY_POSTS = gql`
-  query posts($username: String) {
-    posts(username: $username) {
+export const QUERY_EVENTS = gql`
+  query events($username: String) {
+    events(username: $username) {
       _id
-      postText
+      eventDate
+      eventLocation
+      eventTime
+      eventMax
       createdAt
       username
       commentCount
@@ -18,11 +21,14 @@ export const QUERY_POSTS = gql`
   }
 `;
 
-export const QUERY_POST = gql`
-  query post($id: ID!) {
-    post(_id: $id) {
+export const QUERY_EVENT = gql`
+  query event($id: ID!) {
+    event(_id: $id) {
       _id
-      postText
+      eventDate
+      eventLocation
+      eventTime
+      eventMax
       createdAt
       username
       commentCount
@@ -47,9 +53,12 @@ export const QUERY_USER = gql`
         _id
         username
       }
-      posts {
+      events {
         _id
-        postText
+        eventDate
+        eventLocation
+        eventTime
+        eventMax
         createdAt
         commentCount
       }
@@ -64,9 +73,12 @@ export const QUERY_ME = gql`
       username
       email
       friendCount
-      posts {
+      events {
         _id
-        postText
+        eventDate
+        eventLocation
+        eventTime
+        eventMax
         createdAt
         commentCount
         comments {

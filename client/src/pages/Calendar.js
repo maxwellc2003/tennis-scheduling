@@ -1,11 +1,18 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 
-import "../assets/css/calendar.css"
+import "../assets/css/calendar.css";
 
 import initCalendar from "../assets/js/calendar.js";
+
 import Login from "../components/Login";
+import PlayerCard from "../components/PlayerCard";
+import PostForm from "../components/PostForm";
+
+import Auth from "../utils/auth";
 
 const Home = () => {
+  const loggedIn = Auth.loggedIn();
+
   useEffect(() => {
     initCalendar();
   }, []);
@@ -55,7 +62,9 @@ const Home = () => {
               </div>
               <div className="calendar-header-date">
                 <i id="arrow-left" className="arrow left"></i>
-                <h1 id="current-week-header" className="current-week">placeholder</h1>
+                <h1 id="current-week-header" className="current-week">
+                  placeholder
+                </h1>
                 <i id="arrow-right" className="arrow right"></i>
               </div>
 
@@ -77,8 +86,7 @@ const Home = () => {
             <div className="calendar-content">
               <div className="calendar-row">
                 <div id="weekDay1" className="week-day"></div>
-                <div id="eventContainer1" className="event-container">
-                </div>
+                <div id="eventContainer1" className="event-container"></div>
               </div>
               <div className="calendar-row">
                 <div id="weekDay2" className="week-day"></div>
@@ -108,7 +116,9 @@ const Home = () => {
             <div className="calendar-footer">
               <div className="calendar-footer-date">
                 <i id="arrow-left1" className="arrow left"></i>
-                <h1 id="current-week-footer" className="current-week">placeholder</h1>
+                <h1 id="current-week-footer" className="current-week">
+                  placeholder
+                </h1>
                 <i id="arrow-right1" className="arrow right"></i>
               </div>
             </div>
@@ -116,11 +126,9 @@ const Home = () => {
         </div>
       </div>
       <div className="main-right">
-        <Login />
-
-        <div className="selected-event">
-
-        </div>
+        {!loggedIn && <Login />}
+        {loggedIn && <PlayerCard />}
+        {loggedIn && <PostForm />}
       </div>
     </main>
   );

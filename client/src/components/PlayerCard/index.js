@@ -16,7 +16,7 @@ const PlayerCard = () => {
       <div className="border"></div>
       <h2>Welcome, Player!</h2>
       <div className="border"></div>
-      <button id="logout-button" class="button form-element" type="button" onClick={logout}>
+      <button id="logout-button" className="button form-element" type="button" onClick={logout}>
         Logout
       </button>
     </div>

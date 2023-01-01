@@ -1,4 +1,4 @@
-var responsiveSlider = function () {
+var initSlider = function () {
   var slider = document.getElementById("slider");
   var sliderWidth = slider.offsetWidth;
   var slideList = document.getElementById("slideWrap");
@@ -46,4 +46,4 @@ var responsiveSlider = function () {
   }, 8000);
 };
 
-export default responsiveSlider;
+export default initSlider;

@@ -4,10 +4,25 @@ const dateFormat = require("../utils/dateFormat");
 
 const EventSchema = new Schema(
   {
-    postText: {
+    eventDate: {
       type: String,
       required: true,
-      maxlength: 280,
+      maxlength: 8,
+    },
+    eventLocation: {
+      type: String,
+      required: true,
+      maxlength: 12,
+    },
+    eventTime: {
+      type: String,
+      required: true,
+      maxlength: 12,
+    },
+    eventMax: {
+      type: String,
+      required: true,
+      maxlength: 2,
     },
     createdAt: {
       type: Date,
@@ -22,6 +37,7 @@ const EventSchema = new Schema(
   },
   {
     toJSON: {
+      virtuals: true,
       getters: true,
     },
   }

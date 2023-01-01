@@ -24,11 +24,24 @@ export const ADD_USER = gql`
   }
 `;
 
-export const ADD_POST = gql`
-  mutation addPost($postText: String!) {
-    addPost(postText: $postText) {
+export const ADD_EVENT = gql`
+  mutation addEvent(
+    $eventDate: String!
+    $eventLocation: String!
+    $eventTime: String!
+    $eventMax: String!
+  ) {
+    addEvent(
+      eventDate: $eventDate
+      eventLocation: $eventLocation
+      eventTime: $eventTime
+      eventMax: $eventMax
+    ) {
       _id
-      postText
+      eventDate
+      eventLocation
+      eventTime
+      eventMax
       createdAt
       username
       commentCount
@@ -40,8 +53,8 @@ export const ADD_POST = gql`
 `;
 
 export const ADD_COMMENT = gql`
-  mutation addComment($postId: ID!, $commentBody: String!) {
-    addComment(postId: $postId, commentBody: $commentBody) {
+  mutation addComment($eventId: ID!, $commentBody: String!) {
+    addComment(eventId: $eventId, commentBody: $commentBody) {
       _id
       commentCount
       comments {

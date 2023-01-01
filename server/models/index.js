@@ -1,3 +1,3 @@
 const User = require("./User");
-const Post = require("./Post");
-module.exports = { User, Post };
+const Event = require("./Event");
+module.exports = { User, Event };
