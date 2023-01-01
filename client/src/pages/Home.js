@@ -6,7 +6,7 @@ import Slider from "../components/Slider";
 import Login from "../components/Login";
 import PlayerCard from "../components/PlayerCard";
 
-import Auth from "../utils/auth";
+import Auth from "../hooks/auth";
 
 const Home = () => {
   useEffect(() => {

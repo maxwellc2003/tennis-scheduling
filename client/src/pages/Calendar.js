@@ -8,7 +8,7 @@ import Login from "../components/Login";
 import PlayerCard from "../components/PlayerCard";
 import PostForm from "../components/PostForm";
 
-import Auth from "../utils/auth";
+import Auth from "../hooks/auth";
 
 const Home = () => {
   const loggedIn = Auth.loggedIn();

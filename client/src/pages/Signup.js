@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useMutation } from "@apollo/client";
-import { ADD_USER } from "../utils/mutations";
+import { ADD_USER } from "../hooks/mutations";
 
 import "../assets/css/signup.css";
 import initCaptcha from "../assets/js/captcha.js";
 import Captcha from "../components/Captcha";
 
-import Auth from "../utils/auth";
+import Auth from "../hooks/auth";
 
 const Signup = () => {
   useEffect(() => {

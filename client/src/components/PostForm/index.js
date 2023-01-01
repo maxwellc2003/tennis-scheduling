@@ -1,17 +1,17 @@
 import React, { useState } from "react";
+import { useMutation } from "@apollo/client";
+import { ADD_EVENT } from "../../hooks/mutations";
+import { QUERY_EVENTS, QUERY_ME } from "../../hooks/queries";
 
 import "../../assets/css/postform.css";
 
-//Other important stuff
-import { useMutation } from "@apollo/client";
-import { ADD_EVENT } from "../../utils/mutations";
-import { QUERY_EVENTS, QUERY_ME } from "../../utils/queries";
+
 
 const EventForm = () => {
   const [{ eventDate, eventLocation, eventTime, eventMax }, setText] =
     useState("");
 
-  const [addEvent, { error }] = useMutation(ADD_EVENT, {
+  const [addEvent, { data, loading, error, client }] = useMutation(ADD_EVENT, {
     update(cache, { data: { addEvent } }) {
       try {
         const { me } = cache.readQuery({ query: QUERY_ME });
@@ -44,6 +44,8 @@ const EventForm = () => {
       console.error(err);
     }
   };
+
+  console.log("apollo client: ", client);
 
   return (
     <div className="post-form-wrapper">
