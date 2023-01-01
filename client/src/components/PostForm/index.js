@@ -8,7 +8,8 @@ import { ADD_EVENT } from "../../utils/mutations";
 import { QUERY_EVENTS, QUERY_ME } from "../../utils/queries";
 
 const EventForm = () => {
-  const [{eventDate, eventLocation, eventTime, eventMax}, setText] = useState("");
+  const [{ eventDate, eventLocation, eventTime, eventMax }, setText] =
+    useState("");
 
   const [addEvent, { error }] = useMutation(ADD_EVENT, {
     update(cache, { data: { addEvent } }) {
@@ -46,10 +47,7 @@ const EventForm = () => {
 
   return (
     <div className="post-form-wrapper">
-      <form
-        className="post-form"
-        onSubmit={handleSubmit}
-      >
+      <form className="post-form" onSubmit={handleSubmit}>
         <h1>Add Session</h1>
         <textarea
           className="post-form-el"
@@ -75,6 +73,7 @@ const EventForm = () => {
           Submit
         </button>
       </form>
+      {error && <span>Something went wrong...</span>}
     </div>
   );
 };

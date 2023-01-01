@@ -15,6 +15,9 @@ const typeDefs = gql`
   type Event {
     _id: ID
     eventDate: String
+    eventLocation: String
+    eventTime: String
+    eventMax: String
     createdAt: String
     username: String
     commentCount: Int

@@ -37,7 +37,6 @@ const EventSchema = new Schema(
   },
   {
     toJSON: {
-      virtuals: true,
       getters: true,
     },
   }
