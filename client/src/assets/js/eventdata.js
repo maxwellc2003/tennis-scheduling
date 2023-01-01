@@ -40,24 +40,20 @@ function displayEventData(date, data, filter) {
 
   for (let i = 0; i < length; i++) {
     // MONDAY
-    if (data[i].date === monday) {
+    if (data[i].eventDate === monday) {
       let containerEl = document.getElementById("eventContainer1");
       let cardEl = document.createElement("div");
       let timeEl = document.createElement("h5");
       let numberAttendingEl = document.createElement("p");
       let circleEl = document.createElement("div");
 
-      if (data[i].event_users.length >= data[i].max_players) {
-        cardEl.classList.add("full-session");
-      }
-
       if (filter != null) {
-        if (data[i].location === filter) {
-          timeEl.textContent = data[i].time;
+        if (data[i].eventLocation === filter) {
+          timeEl.textContent = data[i].eventTime;
           cardEl.classList.add("card");
-          numberAttendingEl.textContent = data[i].event_users.length;
+          numberAttendingEl.textContent = data[i].eventUsers.length;
           circleEl.classList.add("number-attending-icon");
-          if (data[i].event_users.length >= data[i].max_players) {
+          if (data[i].eventUsers.length >= data[i].eventMax) {
             circleEl.classList.add("full-icon");
           }
 
@@ -72,11 +68,11 @@ function displayEventData(date, data, filter) {
         } else {
         }
       } else {
-        timeEl.textContent = data[i].time;
+        timeEl.textContent = data[i].eventTime;
         cardEl.classList.add("card");
-        numberAttendingEl.textContent = data[i].event_users.length;
+        numberAttendingEl.textContent = data[i].eventUsers.length;
         circleEl.classList.add("number-attending-icon");
-        if (data[i].event_users.length >= data[i].max_players) {
+        if (data[i].eventUsers.length >= data[i].eventMax) {
           circleEl.classList.add("full-icon");
         }
 
@@ -92,24 +88,20 @@ function displayEventData(date, data, filter) {
     }
 
     // TUESDAY
-    if (data[i].date === tuesday) {
+    if (data[i].eventDate === tuesday) {
       let containerEl = document.getElementById("eventContainer2");
       let cardEl = document.createElement("div");
       let timeEl = document.createElement("h5");
       let numberAttendingEl = document.createElement("p");
       let circleEl = document.createElement("div");
 
-      if (data[i].event_users.length >= data[i].max_players) {
-        cardEl.classList.add("full-session");
-      }
-
       if (filter != null) {
-        if (data[i].location === filter) {
-          timeEl.textContent = data[i].time;
+        if (data[i].eventLocation === filter) {
+          timeEl.textContent = data[i].eventTime;
           cardEl.classList.add("card");
-          numberAttendingEl.textContent = data[i].event_users.length;
+          numberAttendingEl.textContent = data[i].eventUsers.length;
           circleEl.classList.add("number-attending-icon");
-          if (data[i].event_users.length >= data[i].max_players) {
+          if (data[i].eventUsers.length >= data[i].eventMax) {
             circleEl.classList.add("full-icon");
           }
 
@@ -124,11 +116,11 @@ function displayEventData(date, data, filter) {
         } else {
         }
       } else {
-        timeEl.textContent = data[i].time;
+        timeEl.textContent = data[i].eventTime;
         cardEl.classList.add("card");
-        numberAttendingEl.textContent = data[i].event_users.length;
+        numberAttendingEl.textContent = data[i].eventUsers.length;
         circleEl.classList.add("number-attending-icon");
-        if (data[i].event_users.length >= data[i].max_players) {
+        if (data[i].eventUsers.length >= data[i].eventMax) {
           circleEl.classList.add("full-icon");
         }
 
@@ -144,24 +136,20 @@ function displayEventData(date, data, filter) {
     }
 
     // WEDNESDAY
-    if (data[i].date === wednesday) {
+    if (data[i].eventDate === wednesday) {
       let containerEl = document.getElementById("eventContainer3");
       let cardEl = document.createElement("div");
       let timeEl = document.createElement("h5");
       let numberAttendingEl = document.createElement("p");
       let circleEl = document.createElement("div");
 
-      if (data[i].event_users.length >= data[i].max_players) {
-        cardEl.classList.add("full-session");
-      }
-
       if (filter != null) {
-        if (data[i].location === filter) {
-          timeEl.textContent = data[i].time;
+        if (data[i].eventLocation === filter) {
+          timeEl.textContent = data[i].eventTime;
           cardEl.classList.add("card");
-          numberAttendingEl.textContent = data[i].event_users.length;
+          numberAttendingEl.textContent = data[i].eventUsers.length;
           circleEl.classList.add("number-attending-icon");
-          if (data[i].event_users.length >= data[i].max_players) {
+          if (data[i].eventUsers.length >= data[i].eventMax) {
             circleEl.classList.add("full-icon");
           }
 
@@ -176,11 +164,11 @@ function displayEventData(date, data, filter) {
         } else {
         }
       } else {
-        timeEl.textContent = data[i].time;
+        timeEl.textContent = data[i].eventTime;
         cardEl.classList.add("card");
-        numberAttendingEl.textContent = data[i].event_users.length;
+        numberAttendingEl.textContent = data[i].eventUsers.length;
         circleEl.classList.add("number-attending-icon");
-        if (data[i].event_users.length >= data[i].max_players) {
+        if (data[i].eventUsers.length >= data[i].eventMax) {
           circleEl.classList.add("full-icon");
         }
 
@@ -196,24 +184,20 @@ function displayEventData(date, data, filter) {
     }
 
     // THURSDAY
-    if (data[i].date === thursday) {
+    if (data[i].eventDate === thursday) {
       let containerEl = document.getElementById("eventContainer4");
       let cardEl = document.createElement("div");
       let timeEl = document.createElement("h5");
       let numberAttendingEl = document.createElement("p");
       let circleEl = document.createElement("div");
 
-      if (data[i].event_users.length >= data[i].max_players) {
-        cardEl.classList.add("full-session");
-      }
-
       if (filter != null) {
-        if (data[i].location === filter) {
-          timeEl.textContent = data[i].time;
+        if (data[i].eventLocation === filter) {
+          timeEl.textContent = data[i].eventTime;
           cardEl.classList.add("card");
-          numberAttendingEl.textContent = data[i].event_users.length;
+          numberAttendingEl.textContent = data[i].eventUsers.length;
           circleEl.classList.add("number-attending-icon");
-          if (data[i].event_users.length >= data[i].max_players) {
+          if (data[i].eventUsers.length >= data[i].eventMax) {
             circleEl.classList.add("full-icon");
           }
 
@@ -228,11 +212,11 @@ function displayEventData(date, data, filter) {
         } else {
         }
       } else {
-        timeEl.textContent = data[i].time;
+        timeEl.textContent = data[i].eventTime;
         cardEl.classList.add("card");
-        numberAttendingEl.textContent = data[i].event_users.length;
+        numberAttendingEl.textContent = data[i].eventUsers.length;
         circleEl.classList.add("number-attending-icon");
-        if (data[i].event_users.length >= data[i].max_players) {
+        if (data[i].eventUsers.length >= data[i].eventMax) {
           circleEl.classList.add("full-icon");
         }
 
@@ -248,24 +232,20 @@ function displayEventData(date, data, filter) {
     }
 
     // FRIDAY
-    if (data[i].date === friday) {
+    if (data[i].eventDate === friday) {
       let containerEl = document.getElementById("eventContainer5");
       let cardEl = document.createElement("div");
       let timeEl = document.createElement("h5");
       let numberAttendingEl = document.createElement("p");
       let circleEl = document.createElement("div");
 
-      if (data[i].event_users.length >= data[i].max_players) {
-        cardEl.classList.add("full-session");
-      }
-
       if (filter != null) {
-        if (data[i].location === filter) {
-          timeEl.textContent = data[i].time;
+        if (data[i].eventLocation === filter) {
+          timeEl.textContent = data[i].eventTime;
           cardEl.classList.add("card");
-          numberAttendingEl.textContent = data[i].event_users.length;
+          numberAttendingEl.textContent = data[i].eventUsers.length;
           circleEl.classList.add("number-attending-icon");
-          if (data[i].event_users.length >= data[i].max_players) {
+          if (data[i].eventUsers.length >= data[i].eventMax) {
             circleEl.classList.add("full-icon");
           }
 
@@ -280,11 +260,11 @@ function displayEventData(date, data, filter) {
         } else {
         }
       } else {
-        timeEl.textContent = data[i].time;
+        timeEl.textContent = data[i].eventTime;
         cardEl.classList.add("card");
-        numberAttendingEl.textContent = data[i].event_users.length;
+        numberAttendingEl.textContent = data[i].eventUsers.length;
         circleEl.classList.add("number-attending-icon");
-        if (data[i].event_users.length >= data[i].max_players) {
+        if (data[i].eventUsers.length >= data[i].eventMax) {
           circleEl.classList.add("full-icon");
         }
 
@@ -300,24 +280,20 @@ function displayEventData(date, data, filter) {
     }
 
     // SATURDAY
-    if (data[i].date === saturday) {
+    if (data[i].eventDate === saturday) {
       let containerEl = document.getElementById("eventContainer6");
       let cardEl = document.createElement("div");
       let timeEl = document.createElement("h5");
       let numberAttendingEl = document.createElement("p");
       let circleEl = document.createElement("div");
 
-      if (data[i].event_users.length >= data[i].max_players) {
-        cardEl.classList.add("full-session");
-      }
-
       if (filter != null) {
-        if (data[i].location === filter) {
-          timeEl.textContent = data[i].time;
+        if (data[i].eventLocation === filter) {
+          timeEl.textContent = data[i].eventTime;
           cardEl.classList.add("card");
-          numberAttendingEl.textContent = data[i].event_users.length;
+          numberAttendingEl.textContent = data[i].eventUsers.length;
           circleEl.classList.add("number-attending-icon");
-          if (data[i].event_users.length >= data[i].max_players) {
+          if (data[i].eventUsers.length >= data[i].eventMax) {
             circleEl.classList.add("full-icon");
           }
 
@@ -332,11 +308,11 @@ function displayEventData(date, data, filter) {
         } else {
         }
       } else {
-        timeEl.textContent = data[i].time;
+        timeEl.textContent = data[i].eventTime;
         cardEl.classList.add("card");
-        numberAttendingEl.textContent = data[i].event_users.length;
+        numberAttendingEl.textContent = data[i].eventUsers.length;
         circleEl.classList.add("number-attending-icon");
-        if (data[i].event_users.length >= data[i].max_players) {
+        if (data[i].eventUsers.length >= data[i].eventMax) {
           circleEl.classList.add("full-icon");
         }
 
@@ -352,24 +328,20 @@ function displayEventData(date, data, filter) {
     }
 
     // SUNDAY
-    if (data[i].date === sunday) {
+    if (data[i].eventDate === sunday) {
       let containerEl = document.getElementById("eventContainer7");
       let cardEl = document.createElement("div");
       let timeEl = document.createElement("h5");
       let numberAttendingEl = document.createElement("p");
       let circleEl = document.createElement("div");
 
-      if (data[i].event_users.length >= data[i].max_players) {
-        cardEl.classList.add("full-session");
-      }
-
       if (filter != null) {
-        if (data[i].location === filter) {
-          timeEl.textContent = data[i].time;
+        if (data[i].eventLocation === filter) {
+          timeEl.textContent = data[i].eventTime;
           cardEl.classList.add("card");
-          numberAttendingEl.textContent = data[i].event_users.length;
+          numberAttendingEl.textContent = data[i].eventUsers.length;
           circleEl.classList.add("number-attending-icon");
-          if (data[i].event_users.length >= data[i].max_players) {
+          if (data[i].eventUsers.length >= data[i].eventMax) {
             circleEl.classList.add("full-icon");
           }
 
@@ -384,11 +356,11 @@ function displayEventData(date, data, filter) {
         } else {
         }
       } else {
-        timeEl.textContent = data[i].time;
+        timeEl.textContent = data[i].eventTime;
         cardEl.classList.add("card");
-        numberAttendingEl.textContent = data[i].event_users.length;
+        numberAttendingEl.textContent = data[i].eventUsers.length;
         circleEl.classList.add("number-attending-icon");
-        if (data[i].event_users.length >= data[i].max_players) {
+        if (data[i].eventUsers.length >= data[i].eventMax) {
           circleEl.classList.add("full-icon");
         }
 
@@ -399,7 +371,7 @@ function displayEventData(date, data, filter) {
         containerEl.appendChild(cardEl);
         cardEl.appendChild(numberAttendingEl);
         cardEl.appendChild(circleEl);
-        cardEl.appendChild(timeEl);
+        cardEl.appendChild(eventTimeEl);
       }
     }
   }
@@ -415,9 +387,9 @@ function loadFilterOptions(data) {
   const filterOptions = [];
 
   for (let i = 0; i < data.length; i++) {
-    if (filterOptions.includes(data[i].location)) {
+    if (filterOptions.includes(data[i].eventLocation)) {
     } else {
-      filterOptions.push(data[i].location);
+      filterOptions.push(data[i].eventLocation);
     }
   }
 
@@ -451,7 +423,7 @@ function cardSelected(selected, data) {
   dateEl.classList.add("date");
 
   dateLabelEl.textContent = "Date";
-  dateEl.textContent = data[selected].date;
+  dateEl.textContent = data[selected].eventDate;
 
   // location info
   let locationContainerEl = document.createElement("div");
@@ -461,7 +433,7 @@ function cardSelected(selected, data) {
   locationEl.classList.add("location");
 
   locationLabelEl.textContent = "Location";
-  locationEl.textContent = data[selected].location;
+  locationEl.textContent = data[selected].eventLocation;
 
   // time info
   let timeContainerEl = document.createElement("div");
@@ -471,7 +443,7 @@ function cardSelected(selected, data) {
   timeEl.classList.add("time");
 
   timeLabelEl.textContent = "Time";
-  timeEl.textContent = data[selected].time;
+  timeEl.textContent = data[selected].eventTime;
 
   //max-ppl players info
   let maxpplContainerEl = document.createElement("div");
@@ -481,7 +453,7 @@ function cardSelected(selected, data) {
   maxpplEl.classList.add("max-ppl");
 
   maxpplLabelEl.textContent = "Max Players Allowed";
-  maxpplEl.textContent = data[selected].max_players;
+  maxpplEl.textContent = data[selected].eventMax;
 
   // parent appends
   parentEl.appendChild(containerEl);

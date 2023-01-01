@@ -5,11 +5,10 @@ import { QUERY_EVENTS, QUERY_ME } from "../../hooks/queries";
 
 import "../../assets/css/postform.css";
 
-
-
 const EventForm = () => {
-  const [{ eventDate, eventLocation, eventTime, eventMax }, setText] =
-    useState("");
+  const [{ eventDate, eventLocation, eventTime, eventMax }, setText] = useState(
+    {}
+  );
 
   const [addEvent, { data, loading, error, client }] = useMutation(ADD_EVENT, {
     update(cache, { data: { addEvent } }) {
@@ -33,44 +32,70 @@ const EventForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    console.log(eventDate, eventLocation);
 
     try {
       await addEvent({
         variables: { eventDate, eventLocation, eventTime, eventMax },
       });
 
-      setText("");
+      setText({
+        eventDate: "",
+        eventLocation: "",
+        eventTime: "",
+        eventMax: "",
+      });
     } catch (err) {
       console.error(err);
     }
   };
 
-  console.log("apollo client: ", client);
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setText((prev) => ({ ...prev, [name]: value }));
+  };
 
   return (
     <div className="post-form-wrapper">
       <form className="post-form" onSubmit={handleSubmit}>
         <h1>Add Session</h1>
-        <textarea
-          className="post-form-el"
-          placeholder="Date of session(MM/DD/YY)"
-          value={eventDate}
-        ></textarea>
-        <textarea
-          className="post-form-el"
-          placeholder="Location of event(Maximum 12 characters)"
-          value={eventLocation}
-        ></textarea>
-        <textarea
-          className="post-form-el"
-          placeholder="Time of session"
-          value={eventTime}
-        ></textarea>
-        <textarea
-          className="post-form-el"
-          placeholder="Maximum players permitted"
-          value={eventMax}
-        ></textarea>
+        <div className="post-form-el">
+        <h3>Date of session</h3>
+          <textarea
+            placeholder="Format: (MM/DD/YY)"
+            value={eventDate}
+            name="eventDate"
+            onChange={handleChange}
+          ></textarea>
+        </div>
+        <div className="post-form-el">
+        <h3>Location of session</h3>
+          <textarea
+            placeholder="(Maximum 12 characters)"
+            value={eventLocation}
+            name="eventLocation"
+            onChange={handleChange}
+          ></textarea>
+        </div>
+        <div className="post-form-el">
+          <h3>Time of session</h3>
+          <textarea
+            placeholder="Time of session"
+            value={eventTime}
+            name="eventTime"
+            onChange={handleChange}
+          ></textarea>
+        </div>
+        <div className="post-form-el">
+          <h3>Maximum players permitted</h3>
+          <textarea
+            placeholder="(00...99)"
+            value={eventMax}
+            name="eventMax"
+            onChange={handleChange}
+          ></textarea>
+        </div>
+
         <button className="button form-element post-form-el" type="submit">
           Submit
         </button>

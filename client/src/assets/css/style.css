@@ -110,7 +110,7 @@ main {
   margin: 0;
   height: auto;
   border-radius: 3px;
-  background-color: var(--selected-event-color);
+  background-color: grey;
 }
 
 .event-info-container,
