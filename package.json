@@ -1,8 +1,8 @@
 {
   "name": "tennisscheduling",
+  "homepage": "http://tennisscheduling.com",
   "version": "1.0.0",
   "description": "",
-  "proxy": "http://localhost:3001/",
   "main": "index.js",
   "scripts": {
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
@@ -14,14 +14,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Chrisbond1226/chatApp.git"
+    "url": "git+https://github.com/maxwellc2003/tennis-scheduling.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Chrisbond1226/chatApp/issues"
+    "url": "https://github.com/maxwellc2003/tennis-scheduling/issues"
   },
-  "homepage": "https://github.com/Chrisbond1226/chatApp#readme",
   "devDependencies": {
     "concurrently": "^7.6.0",
     "node": "^19.2.0"

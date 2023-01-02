@@ -1,9 +1,8 @@
 {
   "name": "tennisscheduling",
+  "homepage": "http://tennisscheduling.com",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3001/",
-  "homepage": ".",
   "dependencies": {
     "@apollo/client": "^3.3.16",
     "@testing-library/jest-dom": "^5.11.4",
