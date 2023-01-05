@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 
+import initCaptcha from "../../assets/js/captcha.js";
 import "../../assets/css/captcha.css";
 
 // We can add more character to this
 
-const Footer = () => {
+const Captcha = () => {
+    useEffect(() => {
+    initCaptcha();
+  }, []);
+
   return (
     <div id="captchaBackground">
       <canvas id="captcha">captcha text</canvas>
@@ -22,4 +27,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default Captcha;

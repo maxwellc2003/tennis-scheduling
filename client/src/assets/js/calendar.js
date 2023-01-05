@@ -219,7 +219,6 @@ export default function initCalendar(data) {
 }
 
 async function renderCalendar(date, data, filter) {
-  console.log(data)
   // displays the top and bottom banner dates
   await displayCalendarWeek(date);
   // displays the dates inside the calendar
@@ -236,8 +235,6 @@ async function onStart(data) {
 
 // event data logic
 function displayEventData(date, data, filter) {
-
-  console.log("here")
   let eventContainer1El = document.getElementById("eventContainer1");
   let eventContainer2El = document.getElementById("eventContainer2");
   let eventContainer3El = document.getElementById("eventContainer3");
@@ -278,8 +275,7 @@ function displayEventData(date, data, filter) {
   let sunday = date.startOf("isoweek").add(6, "days").format("MM/DD/YY");
 
   for (let i = 0; i < length; i++) {
-    console.log("here")
-    console.log(data[i].eventDate)
+
     // MONDAY
     if (data[i].eventDate === monday) {
       let containerEl = document.getElementById("eventContainer1");

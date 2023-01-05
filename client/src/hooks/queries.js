@@ -48,6 +48,11 @@ export const QUERY_USER = gql`
       _id
       username
       email
+      phone
+      first
+      last
+      utr
+      usta
       friendCount
       friends {
         _id
@@ -72,6 +77,11 @@ export const QUERY_ME = gql`
       _id
       username
       email
+      phone
+      first
+      last
+      utr
+      usta
       friendCount
       events {
         _id
@@ -102,6 +112,10 @@ export const QUERY_ME_BASIC = gql`
       _id
       username
       email
+      first
+      last
+      utr
+      usta
       friendCount
       friends {
         _id

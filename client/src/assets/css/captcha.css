@@ -6,7 +6,7 @@
 
 #captchaBackground {
   margin: 10px 25px 10px 25px;
-  border-radius: 3px;
+  border-radius: 10px;
   height: 125px;
   width: 90%;
   background-color: rgb(163, 163, 163);

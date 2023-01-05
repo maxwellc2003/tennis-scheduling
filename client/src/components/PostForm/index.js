@@ -10,7 +10,7 @@ const EventForm = () => {
     {}
   );
 
-  const [addEvent, { data, loading, error, client }] = useMutation(ADD_EVENT, {
+  const [addEvent, { error}] = useMutation(ADD_EVENT, {
     update(cache, { data: { addEvent } }) {
       try {
         const { me } = cache.readQuery({ query: QUERY_ME });
@@ -32,8 +32,7 @@ const EventForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(eventDate, eventLocation);
-
+    
     try {
       await addEvent({
         variables: { eventDate, eventLocation, eventTime, eventMax },

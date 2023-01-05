@@ -12,7 +12,7 @@ import CalendarEvents from "../components/CalendarEvents";
 
 import Auth from "../hooks/auth";
 
-const Home = () => {
+const Calendar = () => {
   const loggedIn = Auth.loggedIn();
 
   const { loading, data } = useQuery(QUERY_EVENTS);
@@ -33,4 +33,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Calendar;

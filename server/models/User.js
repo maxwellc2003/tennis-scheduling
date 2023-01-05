@@ -13,7 +13,35 @@ const userSchema = new Schema(
       type: String,
       required: true,
       unique: true,
-      match: [/.+@.+\..+/, "Must match an email address!"],
+      match: [/.+@.+\..+/, "Must match an email address"],
+    },
+    phone: {
+      type: String,
+      match: [/^(\()?\d{3}(\))?(-|\s)?\d{3}(-|\s)\d{4}$/, "Phone number formatted incorrectly"],
+    },
+    first: {
+      type: String,
+      required: true,
+    },
+    last: {
+      type: String,
+      required: true,
+    },
+    utr: {
+      type: Number,
+      required: true,
+      validate: {
+        validator: Number.isInteger,
+        message: "{VALUE} is not an integer value",
+      },
+    },
+    usta: {
+      type: Number,
+      required: true,
+      validate: {
+        validator: Number.isInteger,
+        message: "{VALUE} is not an integer value",
+      },
     },
     password: {
       type: String,
@@ -59,4 +87,5 @@ userSchema.virtual("friendCount").get(function () {
 });
 
 const User = model("User", userSchema);
+
 module.exports = User;

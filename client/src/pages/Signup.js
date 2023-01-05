@@ -1,27 +1,36 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../hooks/mutations";
 
 import "../assets/css/signup.css";
-import initCaptcha from "../assets/js/captcha.js";
 import Captcha from "../components/Captcha";
 
 import Auth from "../hooks/auth";
 
 const Signup = () => {
-  useEffect(() => {
-    initCaptcha();
-  }, []);
+  // mutation
+  const [addUser, { error }] = useMutation(ADD_USER);
 
+  // privacy terms agreement
+  const [agreement, setAgreement] = useState(false);
+
+  // formstate initialised
   const [formState, setFormState] = useState({
     username: "",
     email: "",
+    phone: "",
+    first: "",
+    last: "",
+    utr: 0,
+    usta: 0,
     password: "",
   });
-  const [addUser, { error }] = useMutation(ADD_USER);
 
   // update state
   const handleChange = (event) => {
+    setAgreement(event.target.checked);
+
     const { name, value } = event.target;
 
     setFormState({
@@ -54,21 +63,23 @@ const Signup = () => {
             name="email"
             type="email"
             id="email"
-            placeholder="Example@email.com"
+            placeholder="Email"
             value={formState.email}
             onChange={handleChange}
           />
           <input
             className="signup-input"
             type="text"
-            id=""
-            placeholder="Verify Email Address"
+            placeholder="Verify Email"
           />
           <input
             className="signup-input"
             type="text"
-            id=""
-            placeholder="Phone Number (Not Required)"
+            placeholder="Phone Number (Optional)"
+            value={formState.phone}
+            name="phone"
+            id="phone"
+            onChange={handleChange}
           />
           <input
             className="signup-input"
@@ -82,26 +93,38 @@ const Signup = () => {
           <input
             className="signup-input"
             type="text"
-            id=""
             placeholder="First Name"
+            value={formState.first}
+            name="first"
+            id="first"
+            onChange={handleChange}
           />
           <input
             className="signup-input"
             type="text"
-            id=""
-            placeholder="Last Name (Not Required)"
+            placeholder="Last Name"
+            value={formState.last}
+            name="last"
+            id="last"
+            onChange={handleChange}
           />
           <input
             className="signup-input"
-            type="text"
-            id=""
-            placeholder="UTR Level (Not Required)"
+            type="number"
+            placeholder="UTR Level (Optional)"
+            value={formState.utr}
+            name="utr"
+            id="utr"
+            onChange={handleChange}
           />
           <input
             className="signup-input"
-            type="text"
-            id=""
-            placeholder="USTA Level (Not Required)"
+            type="number"
+            placeholder="USTA Level (Optional)"
+            value={formState.usta}
+            name="usta"
+            id="usta"
+            onChange={handleChange}
           />
           <input
             className="signup-input"
@@ -115,30 +138,35 @@ const Signup = () => {
           <input
             className="signup-input"
             type="text"
-            id=""
             placeholder="Password Verification"
           />
-        
-        <div className="checkbox">
-          <input type="checkbox" id="" value="" />
-          We use cookies on our site to save data, do you accept?
-        </div>
-        <div className="checkbox">
-          <input type="checkbox" id="" value="" />
-          Would you like to recieve notifications?
-        </div>
-        <div className="checkbox">
-          <input type="checkbox" id="" value="" />I accept the privacy terms
-        </div>
-        <Captcha />
-        <div className="signup-or-cancel">
-          <button id="signup-button" className="signup-button" type="submit">
-            Sign Up
-          </button>
-          <button id="cancel-button" className="signup-button" type="button">
-            Cancel
-          </button>
-        </div>
+          <div className="signup-input">
+            <input type="checkbox" id="checkbox1" value="" />
+            Would you like to recieve notifications?
+          </div>
+          <div className="signup-input">
+            <input
+              type="checkbox"
+              id="checkbox3"
+              name="agreement"
+              onChange={handleChange}
+            />
+            I accept the privacy terms
+          </div>
+          <Captcha />
+          <div className="signup-or-cancel">
+            <button
+              disabled={!agreement}
+              id="signup-button"
+              className="signup-button"
+              type="submit"
+            >
+              Sign Up
+            </button>
+            <Link to="/" id="cancel-button" className="signup-button">
+              Cancel
+            </Link>
+          </div>
         </form>
         {error && <div>Signup failed</div>}
       </div>
