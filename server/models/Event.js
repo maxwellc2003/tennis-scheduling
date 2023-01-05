@@ -18,11 +18,16 @@ const EventSchema = new Schema(
       type: String,
       required: true,
       maxlength: 9,
+      match: [/(0?[0-9]|1[0-9]|2[0-3])[a-zA-Z]-(0?[0-9]|1[0-9]|2[0-3])[a-zA-Z]/i, "Event time formatted incorrectly"]
     },
     eventMax: {
-      type: String,
+      type: Number,
       required: true,
       maxlength: 2,
+      validate: {
+        validator: Number.isInteger,
+        message: "{VALUE} is not an integer value",
+      },
     },
     createdAt: {
       type: Date,

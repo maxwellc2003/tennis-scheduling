@@ -1,16 +1,46 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../hooks/mutations";
 
 import "../assets/css/signup.css";
-import Captcha from "../components/Captcha";
+import "../assets/css/captcha.css";
+import randomText from "../hooks/randomText";
 
 import Auth from "../hooks/auth";
 
 const Signup = () => {
+  // captcha
+  const [captchaComplete, setCaptchaComplete] = useState(false);
+  const [captchaText, setCaptchaText] = useState(randomText());
+  const [inputText, setInputText] = useState("");
+  const [correctText, setBottomText] = useState("");
+  const [captchaState, setCaptchaState] = useState(false);
+
+  const captchaChange = (event) => {
+    const { name, value } = event.target;
+
+    setInputText(value);
+  };
+
+  const captchaSubmit = () => {
+    if (inputText === "") {
+      setBottomText("Type your guess.");
+      return;
+    }
+
+    if (inputText == captchaText) {
+      setCaptchaState(true);
+      setBottomText("Correct!");
+    } else {
+      setCaptchaState(false);
+      setInputText("");
+      setBottomText("Incorrect.");
+    }
+  };
+
   // mutation
-  const [addUser, { error }] = useMutation(ADD_USER);
+  const [addUser, { loading, error }] = useMutation(ADD_USER);
 
   // privacy terms agreement
   const [agreement, setAgreement] = useState(false);
@@ -22,8 +52,8 @@ const Signup = () => {
     phone: "",
     first: "",
     last: "",
-    utr: 0,
-    usta: 0,
+    utr: "",
+    usta: "",
     password: "",
   });
 
@@ -43,13 +73,21 @@ const Signup = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
+    if (correctText === "Correct!") {
     try {
       const { data } = await addUser({
-        variables: { ...formState },
+        variables: {
+          ...formState,
+          usta: parseInt(formState.usta),
+          utr: parseInt(formState.utr),
+        },
       });
       Auth.login(data.addUser.token);
     } catch (e) {
       console.error(e);
+    }
+    } else {
+      setBottomText("Captcha incomplete.")
     }
   };
 
@@ -67,11 +105,11 @@ const Signup = () => {
             value={formState.email}
             onChange={handleChange}
           />
-          <input
+          {/* <input
             className="signup-input"
             type="text"
             placeholder="Verify Email"
-          />
+          /> */}
           <input
             className="signup-input"
             type="text"
@@ -135,14 +173,14 @@ const Signup = () => {
             value={formState.password}
             onChange={handleChange}
           />
-          <input
+          {/* <input
             className="signup-input"
             type="text"
             placeholder="Password Verification"
-          />
+          /> */}
           <div className="signup-input">
             <input type="checkbox" id="checkbox1" value="" />
-            Would you like to recieve notifications?
+            Would you like to recieve notifications? (Coming Soon)
           </div>
           <div className="signup-input">
             <input
@@ -153,7 +191,37 @@ const Signup = () => {
             />
             I accept the privacy terms
           </div>
-          <Captcha />
+          <div id="captchaBackground">
+            <div id="captcha">{captchaText}</div>
+            <input
+              id="textBox"
+              type="text"
+              name="userText"
+              value={inputText}
+              onChange={captchaChange}
+            />
+            <div id="buttons">
+              <button
+                onClick={() => captchaSubmit()}
+                id="submitButton"
+                type="button"
+              >
+                Submit
+              </button>
+              <button
+                onClick={() => (
+                  setInputText(""),
+                  setBottomText(""),
+                  setCaptchaText(randomText())
+                )}
+                id="refreshButton"
+                type="button"
+              >
+                Refresh
+              </button>
+            </div>
+            {correctText}
+          </div>
           <div className="signup-or-cancel">
             <button
               disabled={!agreement}
@@ -168,6 +236,7 @@ const Signup = () => {
             </Link>
           </div>
         </form>
+        {loading && <div>Loading...</div>}
         {error && <div>Signup failed</div>}
       </div>
     </main>

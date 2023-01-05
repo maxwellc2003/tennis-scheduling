@@ -17,9 +17,11 @@
 }
 
 #captcha {
+  font-family: nunito, serif;
+  color:black;
   height: 35%;
   width: 60%;
-  font-size: 70px;
+  font-size: 40px;
   letter-spacing: 3px;
   margin: auto;
   display: block;

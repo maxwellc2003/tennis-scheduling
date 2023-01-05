@@ -13,8 +13,26 @@ export const LOGIN_USER = gql`
 `;
 
 export const ADD_USER = gql`
-  mutation addUser($username: String!, $email: String!, $phone: String, $first: String!, $last: String!, $utr: Int, $usta: Int, $password: String!) {
-    addUser(username: $username, email: $email, phone: $phone, first: $first, last: $last, utr: $utr, usta: $usta, password: $password) {
+  mutation addUser(
+    $username: String!
+    $email: String!
+    $phone: String
+    $first: String!
+    $last: String!
+    $utr: Int
+    $usta: Int
+    $password: String!
+  ) {
+    addUser(
+      username: $username
+      email: $email
+      phone: $phone
+      first: $first
+      last: $last
+      utr: $utr
+      usta: $usta
+      password: $password
+    ) {
       token
       user {
         _id
@@ -29,7 +47,7 @@ export const ADD_EVENT = gql`
     $eventDate: String!
     $eventLocation: String!
     $eventTime: String!
-    $eventMax: String!
+    $eventMax: Int
   ) {
     addEvent(
       eventDate: $eventDate
