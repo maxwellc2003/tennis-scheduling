@@ -8,7 +8,7 @@ import "../../assets/css/login.css";
 
 const Login = () => {
   const [formState, setFormState] = useState({ email: "", password: "" });
-  const [login, { error }] = useMutation(LOGIN_USER);
+  const [login, { loading, error }] = useMutation(LOGIN_USER);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -89,6 +89,7 @@ const Login = () => {
             </Link>
           </div>
         </form>
+        {loading && <div>Loading...</div>}
         {error && <div>Login unsuccessful</div>}
       </div>
     </div>

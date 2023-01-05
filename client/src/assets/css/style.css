@@ -154,11 +154,6 @@ main {
   width: 40%;
 }
 
-#input_5 {
-  -webkit-text-security: disc;
-  -moz-text-security: disc;
-}
-
 #password-login {
   -webkit-text-security: disc;
   -moz-text-security: disc;

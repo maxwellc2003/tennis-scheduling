@@ -1,13 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 // We can add more character to this
 
 import initCalendar from "../../assets/js/calendar.js";
 
 const CalendarEvents = (data) => {
+  const [number, setNumber] = useState(Math.random)
+
   useEffect(() => {
     initCalendar(data.data.events);
-  }, []);
+  }, [number]);
 
   return (
     <div className="calendar">
@@ -51,11 +53,11 @@ const CalendarEvents = (data) => {
                 </i> */}
         </div>
         <div className="calendar-header-date">
-          <i id="arrow-left" className="arrow left"></i>
+          <i onClick={() => setNumber(Math.random)} id="arrow-left" className="arrow left"></i>
           <h1 id="current-week-header" className="current-week">
             placeholder
           </h1>
-          <i id="arrow-right" className="arrow right"></i>
+          <i onClick={() => setNumber(Math.random)} id="arrow-right" className="arrow right"></i>
         </div>
 
         <div className="dropdown2">
@@ -105,11 +107,11 @@ const CalendarEvents = (data) => {
       </div>
       <div className="calendar-footer">
         <div className="calendar-footer-date">
-          <i id="arrow-left1" className="arrow left"></i>
+          <i onClick={() => setNumber(Math.random)} id="arrow-left1" className="arrow left"></i>
           <h1 id="current-week-footer" className="current-week">
             placeholder
           </h1>
-          <i id="arrow-right1" className="arrow right"></i>
+          <i onClick={() => setNumber(Math.random)} id="arrow-right1" className="arrow right"></i>
         </div>
       </div>
     </div>
