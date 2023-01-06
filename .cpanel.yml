@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/example/public_html/
+    - export DEPLOYPATH=/home/web3605/public_html/
     - /bin/cp -R ./client/build $DEPLOYPATH
