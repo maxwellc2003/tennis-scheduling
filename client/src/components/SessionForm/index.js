@@ -8,7 +8,7 @@ import "../../assets/css/sessionform.css";
 
 const EventForm = () => {
   const [formState, setFormState] = useState({
-    month: "January",
+    month: "01",
     day: "01",
     eventLocation: "",
     startTime: "4:00am",
