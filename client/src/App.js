@@ -19,7 +19,7 @@ import Calendar from "./pages/Calendar";
 import Signup from "./pages/Signup";
 
 const httpLink = createHttpLink({
-  uri: "/graphql",
+  uri: "tennisscheduling.com:80/graphql",
 });
 
 const authLink = setContext((_, { headers }) => {
