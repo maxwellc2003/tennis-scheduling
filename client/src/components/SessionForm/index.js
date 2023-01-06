@@ -8,12 +8,12 @@ import "../../assets/css/sessionform.css";
 
 const EventForm = () => {
   const [formState, setFormState] = useState({
-    month: "",
-    day: "",
+    month: "January",
+    day: "01",
     eventLocation: "",
-    startTime: "",
-    endTime: "",
-    eventMax: "",
+    startTime: "4:00am",
+    endTime: "4:00am",
+    eventMax: "01",
   });
 
   const [addEvent, { error }] = useMutation(ADD_EVENT, {
