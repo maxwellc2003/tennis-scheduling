@@ -10,17 +10,22 @@ import randomText from "../hooks/randomText";
 import Auth from "../hooks/auth";
 
 const Signup = () => {
+  
   // captcha
-  const [captchaComplete, setCaptchaComplete] = useState(false);
   const [captchaText, setCaptchaText] = useState(randomText());
   const [inputText, setInputText] = useState("");
-  const [correctText, setBottomText] = useState("");
-  const [captchaState, setCaptchaState] = useState(false);
+  const [bottomText, setBottomText] = useState("");
 
   const captchaChange = (event) => {
-    const { name, value } = event.target;
+    const { value } = event.target;
 
     setInputText(value);
+  };
+
+  const captchaRefresh = () => {
+    setInputText("");
+    setBottomText("");
+    setCaptchaText(randomText());
   };
 
   const captchaSubmit = () => {
@@ -29,11 +34,9 @@ const Signup = () => {
       return;
     }
 
-    if (inputText == captchaText) {
-      setCaptchaState(true);
+    if (inputText === captchaText) {
       setBottomText("Correct!");
     } else {
-      setCaptchaState(false);
       setInputText("");
       setBottomText("Incorrect.");
     }
@@ -45,7 +48,7 @@ const Signup = () => {
   // privacy terms agreement
   const [agreement, setAgreement] = useState(false);
 
-  // formstate initialised
+  // form state initialised
   const [formState, setFormState] = useState({
     username: "",
     email: "",
@@ -57,7 +60,7 @@ const Signup = () => {
     password: "",
   });
 
-  // update state
+  // update form state
   const handleChange = (event) => {
     setAgreement(event.target.checked);
 
@@ -69,25 +72,26 @@ const Signup = () => {
     });
   };
 
-  // submit
+  // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    if (correctText === "Correct!") {
-    try {
-      const { data } = await addUser({
-        variables: {
-          ...formState,
-          usta: parseInt(formState.usta),
-          utr: parseInt(formState.utr),
-        },
-      });
-      Auth.login(data.addUser.token);
-    } catch (e) {
-      console.error(e);
-    }
+    if (bottomText === "Correct!") {
+      try {
+        const { data } = await addUser({
+          variables: {
+            ...formState,
+            usta: parseInt(formState.usta),
+            utr: parseInt(formState.utr),
+          },
+        });
+        Auth.login(data.addUser.token);
+      } catch (e) {
+        console.error(e);
+      }
     } else {
-      setBottomText("Captcha incomplete.")
+      setBottomText("Captcha incomplete.");
+      return;
     }
   };
 
@@ -209,18 +213,14 @@ const Signup = () => {
                 Submit
               </button>
               <button
-                onClick={() => (
-                  setInputText(""),
-                  setBottomText(""),
-                  setCaptchaText(randomText())
-                )}
+                onClick={() => captchaRefresh()}
                 id="refreshButton"
                 type="button"
               >
                 Refresh
               </button>
             </div>
-            {correctText}
+            {bottomText}
           </div>
           <div className="signup-or-cancel">
             <button

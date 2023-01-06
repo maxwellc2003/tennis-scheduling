@@ -7,7 +7,7 @@ import "../assets/css/calendar.css";
 
 import Login from "../components/Login";
 import PlayerCard from "../components/PlayerCard";
-import PostForm from "../components/PostForm";
+import SessionForm from "../components/SessionForm";
 import CalendarEvents from "../components/CalendarEvents";
 
 import Auth from "../hooks/auth";
@@ -27,7 +27,7 @@ const Calendar = () => {
       <div className="main-right">
         {!loggedIn && <Login />}
         {loggedIn && <PlayerCard />}
-        {loggedIn && <PostForm />}
+        {loggedIn && <SessionForm />}
       </div>
     </main>
   );

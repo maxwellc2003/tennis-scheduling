@@ -17,8 +17,7 @@ const EventSchema = new Schema(
     eventTime: {
       type: String,
       required: true,
-      maxlength: 9,
-      match: [/(0?[0-9]|1[0-9]|2[0-3])[a-zA-Z]-(0?[0-9]|1[0-9]|2[0-3])[a-zA-Z]/i, "Event time formatted incorrectly"]
+      maxlength: 15,
     },
     eventMax: {
       type: Number,
