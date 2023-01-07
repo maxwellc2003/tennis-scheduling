@@ -1,13 +1,16 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/web3605/public_html/
-    - /bin/cp -R ./client/build/static $DEPLOYPATH
-    - /bin/cp ./client/build/.htaccess $DEPLOYPATH
-    - /bin/cp ./client/build/asset-manifest.json $DEPLOYPATH
-    - /bin/cp ./client/build/favicon.ico $DEPLOYPATH
-    - /bin/cp ./client/build/index.html $DEPLOYPATH
-    - /bin/cp ./client/build/logo192.png $DEPLOYPATH
-    - /bin/cp ./client/build/logo512.png $DEPLOYPATH
-    - /bin/cp ./client/build/manifest.json $DEPLOYPATH
-    - /bin/cp ./client/build/robots.txt $DEPLOYPATH
+    - export FRONTEND=/home/web3605/public_html/
+    - /bin/cp -R ./client/build/static $FRONTEND
+    - /bin/cp ./client/build/.htaccess $FRONTEND
+    - /bin/cp ./client/build/asset-manifest.json $FRONTEND
+    - /bin/cp ./client/build/favicon.ico $FRONTEND
+    - /bin/cp ./client/build/index.html $FRONTEND
+    - /bin/cp ./client/build/logo192.png $FRONTEND
+    - /bin/cp ./client/build/logo512.png $FRONTEND
+    - /bin/cp ./client/build/manifest.json $FRONTEND
+    - /bin/cp ./client/build/robots.txt $FRONTEND
+
+    - export BACKEND=/home/web3605/back_end/
+    - /bin/cp -R ./server/ $FRONTEND
