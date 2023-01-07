@@ -13,4 +13,4 @@ deployment:
     - /bin/cp ./client/build/robots.txt $FRONTEND
 
     - export BACKEND=/home/web3605/back_end/
-    - /bin/cp -R ./server/ $FRONTEND
+    - /bin/cp -R ./server/ $BACKEND
